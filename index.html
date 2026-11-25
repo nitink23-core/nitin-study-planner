@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Study Planner</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="top">
+    <div>
+      <h1>Study Planner</h1>
+      <p class="sub" id="summary">No tasks yet</p>
+    </div>
+    <button id="themeBtn" class="small" type="button" aria-label="Switch theme">Dark</button>
+  </header>
+
+  <div class="progress" aria-label="Progress">
+    <div class="bar"><div id="barFill" class="fill"></div></div>
+    <span id="percent">0%</span>
+  </div>
+
+  <form id="taskForm" class="card form" novalidate>
+    <input id="title" type="text" placeholder="What do you need to study?" maxlength="80" aria-label="Task title">
+    <div class="fields">
+      <select id="subject" aria-label="Subject">
+        <option>Maths</option><option>Physics</option><option>Chemistry</option><option>Coding</option><option>Other</option>
+      </select>
+      <select id="priority" aria-label="Priority">
+        <option value="high">High priority</option>
+        <option value="medium" selected>Medium priority</option>
+        <option value="low">Low priority</option>
+      </select>
+      <input id="due" type="date" aria-label="Due date">
+      <button type="submit" class="primary">Add task</button>
+    </div>
+    <p id="error" class="error" role="alert"></p>
+  </form>
+
+  <div class="controls">
+    <input id="search" type="search" placeholder="Search tasks" aria-label="Search tasks">
+    <div class="filters" id="filters" role="group" aria-label="Filter">
+      <button type="button" data-filter="all" class="chip active">All</button>
+      <button type="button" data-filter="active" class="chip">Active</button>
+      <button type="button" data-filter="done" class="chip">Done</button>
+    </div>
+    <select id="sort" aria-label="Sort tasks">
+      <option value="due">Sort: due date</option>
+      <option value="priority">Sort: priority</option>
+      <option value="newest">Sort: newest</option>
+    </select>
+  </div>
+
+  <ul id="list" class="list"></ul>
+  <p id="empty" class="empty" hidden></p>
+
+  <footer class="foot">
+    <button id="clearDone" class="small" type="button">Clear completed</button>
+    <span>Saved in your browser</span>
+  </footer>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
